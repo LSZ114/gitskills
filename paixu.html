@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>排序</title>
+</head>
+<body>
+    <input type="button" value="排序" onclick="xianshi()">
+
+ <p id="result"></p>
+
+<script>
+    function Sort(arr) {
+        let len = arr.length;
+        for (let i = 0; i < len - 1; i++) {
+            for (let j = 0; j < len - 1 - i; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+                }
+            }
+        }
+        return arr;
+    }
+    function xianshi() {
+        let userInput = prompt("请输入数组元素，用逗号分隔:");
+        let arr = userInput.split(",").map(Number); 
+        document.getElementById("result").innerHTML = "排序后的数组为:" + Sort(arr).toString();
+        console.log(Sort(arr));
+    }
+</script>
+</body>
+</html>
